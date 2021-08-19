@@ -1,6 +1,6 @@
 {
   "name": "tucmc-auth",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -8,7 +8,8 @@
   ],
   "description": "",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "publish": "npm publish"
   },
   "keywords": [],
   "homepage": "https://github.com/triamudomcmc/tucmc-auth",

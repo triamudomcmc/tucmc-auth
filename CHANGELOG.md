@@ -48,3 +48,14 @@ All notable changes to this package will be documented in this file.
 ### Fixed
 
 - Fixed CDN url
+
+## [0.1.0] - 2020-08-20
+
+### Added
+
+- Now available on GitHub
+
+### Fixed
+
+- Fixed some inappropriate variable name
+
