@@ -6,10 +6,9 @@
   "files": [
     "dist"
   ],
-  "description": "",
+  "description": "Easily secure your website with authentication system.",
   "scripts": {
-    "build": "rollup -c",
-    "publish": "npm publish"
+    "build": "rollup -c"
   },
   "keywords": [],
   "homepage": "https://github.com/triamudomcmc/tucmc-auth",
