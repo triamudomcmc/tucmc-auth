@@ -59,3 +59,10 @@ All notable changes to this package will be documented in this file.
 
 - Fixed some inappropriate variable name
 
+## [0.1.1] - 2020-08-20
+
+## Added
+
+- Minified css for plainJs version
+- Check client token before sending any request to server
+- playground folder for examples

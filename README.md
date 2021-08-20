@@ -47,14 +47,14 @@ export default Index
 ## Setup Guide using javascript CDN
 ### Library Resources CDN
 ```
-CSS: https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.css
+CSS: https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css
 Script: https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
 ```
 
 ### 1. Include all required libraries
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css"/>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js"></script>
 <script async src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js" onload="init()"></script>
 ```

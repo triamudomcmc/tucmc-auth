@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import {IAuthContext} from "./interfaces/IAuthContext";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import {Loader} from "./vectors/Loader";
+import * as crypto from "crypto";
 
 const AuthContext = React.createContext<IAuthContext | null>(null)
 
@@ -120,11 +121,21 @@ function useProvideAuth(token) {
     return await res.json()
   }
 
+  const checkToken = () => {
+    const hostname = window.location.origin
+    const hashed = crypto.createHash("SHA256").update(hostname).digest("base64")
+
+    return token.includes(hashed)
+  }
+
   const signin = () => {
     if (loading) return;
     if (prevPop) {
       prevPop.close()
     }
+
+    if (!checkToken()) {console.log("invalid_client_token"); return;}
+
     const data = window.localStorage.getItem("data")
     if(data) return
     setLoading(true)
