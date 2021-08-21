@@ -122,10 +122,7 @@ function useProvideAuth(token) {
   }
 
   const checkToken = () => {
-    const hostname = window.location.origin
-    const hashed = crypto.createHash("SHA256").update(hostname).digest("base64")
-
-    return token.includes(hashed)
+    return token.length === 44
   }
 
   const signin = () => {

@@ -66,3 +66,9 @@ All notable changes to this package will be documented in this file.
 - Minified css for plainJs version
 - Check client token before sending any request to server
 - playground folder for examples
+
+## [0.1.2] - 2020-08-21
+
+## Fixed
+
+- Reimplemented client token validating system.
