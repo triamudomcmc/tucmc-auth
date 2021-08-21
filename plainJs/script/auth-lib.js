@@ -68,28 +68,15 @@ class TUCMCAuth {
         document.getElementById("login_with_TUCMC").style.padding = "0.5rem 2rem"
     }
 
-    async _checkToken() {
-        const hostname = window.location.origin
-        const arrayBuffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(hostname))
-
-        function _arrayBufferToBase64( buffer ) {
-            let binary = ''
-            let bytes = new Uint8Array( buffer )
-            let len = bytes.byteLength
-            for (let i = 0; i < len; i++) {
-                binary += String.fromCharCode( bytes[ i ] )
-            }
-            return window.btoa( binary )
-        }
-
-        return this.TOKEN.includes(_arrayBufferToBase64(arrayBuffer))
+    _checkToken() {
+        return this.TOKEN.length === 44
     }
 
-    async signin() {
+    signin() {
         const data = window.localStorage.getItem("data")
         if (data) return
         if (this.prevPop) this.prevPop.close()
-        if (!await this._checkToken()) {console.log("invalid_client_token"); return;}
+        if (!this._checkToken()) {console.log("invalid_client_token"); return;}
 
         this._setLoading()
 
