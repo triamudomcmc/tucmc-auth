@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { IAuthContext } from "./interfaces/IAuthContext";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { Loader } from "./vectors/Loader";
-import * as crypto from "crypto";
+// import * as crypto from "crypto";
 
 const AuthContext = React.createContext<IAuthContext | null>(null);
 
@@ -36,34 +36,9 @@ function useProvideAuth(token) {
     setUserData(user());
   };
 
-  const SignInWithTUCMC = () => {
-    return (
-      <button
-        onClick={signin}
-        style={{
-          backgroundImage: "linear-gradient(to right, #a78bfa, #ec4899, #ef4444)",
-          color: "rgba(255, 255, 255, 1)",
-          padding: loading ? "0.14rem 4.71rem" : "0.5rem 2rem",
-          fontWeight: 600,
-          borderRadius: "0.375rem",
-          fontSize: "0.875rem",
-          lineHeight: "1.25rem",
-          border: "none",
-        }}
-      >
-        {loading ? <Loader /> : "Login with TUCMC"}
-      </button>
-    );
-  };
-
   useEffect(() => {
     reFetch();
   }, []);
-
-  const signOut = () => {
-    window.localStorage.setItem("data", "");
-    reFetch();
-  };
 
   const fetchToken = async () => {
     const fp = await FingerprintJS.load();
@@ -126,7 +101,7 @@ function useProvideAuth(token) {
     return token.length === 44;
   };
 
-  const signin = () => {
+  const signIn = () => {
     if (loading) return;
     if (prevPop) {
       prevPop.close();
@@ -152,10 +127,16 @@ function useProvideAuth(token) {
     });
   };
 
+  const signOut = () => {
+    window.localStorage.setItem("data", "");
+    reFetch();
+  };
+
   return {
-    SignInWithTUCMC,
+    signIn,
     signOut,
     reFetch,
     userData,
+    loading,
   };
 }
