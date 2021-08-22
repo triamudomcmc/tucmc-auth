@@ -1,5 +1,3 @@
-import { UserData } from "./interfaces/UserData";
-
 declare module "tucmc-auth" {
   interface UserData {
     studentID: string;

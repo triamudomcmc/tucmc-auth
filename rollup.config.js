@@ -1,8 +1,17 @@
-import typescript from 'rollup-plugin-typescript2'
-import babel from '@rollup/plugin-babel'
+import typescript from "rollup-plugin-typescript2";
+import babel from "@rollup/plugin-babel";
 import dts from "rollup-plugin-dts";
-import copy from 'rollup-plugin-copy'
+import copy from "rollup-plugin-copy";
 
+export default [
+  {
+    input: "src/index.tsx",
+    output: [{ file: "dist/index.d.ts", format: "es" }],
+    plugins: [dts()],
+  },
+];
+
+/*
 export default [
     // ES Modules
     {
@@ -24,5 +33,6 @@ export default [
         input: "src/index.d.ts",
         output: [{ file: "dist/index.d.ts", format: "es" }],
         plugins: [dts()],
-    }
+    },
 ]
+*/
