@@ -56,15 +56,17 @@ Then, use the `useAuth` hook to access all the user data from anywhere.
 #### `pages/index.js` or `pages/index.tsx`
 
 ```jsx
-import { useAuth, SignInWithTUCMC } from 'tucmc-auth'
+import { useAuth, TUCMCLogin } from 'tucmc-auth'
 
 const Index = () => {
-  const { userData, signOut } = useAuth()
+  const { userData, logOut, logIn } = useAuth()
 
   return (
     <div>
       { userData && <h1>Hi, {userData.firstname}</h1> }
-      <SigninWithTUCMC/>
+      <TUCMCLogin/>
+      <button onClick={() => logIn()}>Login</button>
+      <button onClick={() => logOut()}>Logout</button>
     </div>
   )
 }
@@ -115,7 +117,7 @@ https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
 </script>
 ```
 
-### 3. Add sign-in button
+#### 3. Add the buttons
 ```html
 <!-- Display data here -->
 <p id="email"></p>
