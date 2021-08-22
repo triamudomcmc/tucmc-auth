@@ -2,36 +2,41 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="../plainJs/script/auth-style.css" />
-  <script type="text/javascript" src="../plainJs/script/auth-lib.js"></script>
-  <script async src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js" onload="init()"></script>
-  <script>
-    const auth = new TUCMCAuth("tYjFVdtj/5jlF8GhpZ3QF49moVTNXRM6TzB4axMNADs=")
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TUCMC Auth Example</title>
+	<link rel="stylesheet" href="../plainJs/script/auth-style.css" />
+	<script type="text/javascript" src="../plainJs/script/auth-lib.js"></script>
+	<script async src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js" onload="init()"></script>
+	<script>
+		const auth = new TUCMCAuth("-----TOKEN-----");
 
-    window.onload = function () {
-      const sessionData = auth.user()
+		window.onload = function () {
+			const sessionData = auth.user();
 
-      // If session is valid, update an element with userdata.
-      if (sessionData) {
-        document.getElementById("email").innerText = sessionData.email
-      }
-    }
-  </script>
+			// If session is valid, update an element with userdata.
+			if (sessionData) {
+				document.getElementById("email").innerText = `Logged in as: ${sessionData.email}`;
+			} else {
+				document.getElementById("email").innerText = "";
+			}
+		}
+	</script>
 </head>
 
 <body>
-  <!---Button id must be `login_with_TUCMC`--->
-  <button id="login_with_TUCMC" class="login_with_TUCMC">
-    Login with TUCMC
-  </button>
+	<!-- Display data here -->
+	<p id="email"></p>
 
-  <!---Logout button--->
-  <button onclick="auth.signout()">logout</button>
+	<!-- Login button - must have the class "tucmc-login" -->
+	<button class="tucmc-login">Login with TUCMC</button>
 
-  <!---Display data here--->
-  <p id="email"></p>
+	<!-- Custom Login Button-->
+	<button onclick="auth.login()">Login</button>
+
+	<!-- Logout button -->
+	<button onclick="auth.logout()">logout</button>
 </body>
 
 </html>
