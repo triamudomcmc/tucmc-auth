@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "./auth";
 import { Loader } from "./vectors/Loader";
 
-export const SignInWithTUCMC = () => {
+export const TUCMCLogin = () => {
   const [hover, setHover] = useState(false);
   const { loading, signIn } = useAuth();
 

@@ -1,3 +1,3 @@
 export { useAuth, AuthProvider } from "./auth";
 
-export { SignInWithTUCMC } from "./components";
+export { TUCMCLogin } from "./components";
