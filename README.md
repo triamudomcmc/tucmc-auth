@@ -15,6 +15,14 @@ Easily implement authentication in your website with TUCMC's authentication syst
 
 Below is the data you'll get from a logged in user.
 
+```
+studentID: รหัสนักเรียน
+title: คำนำหน้า
+firstname: ชื่อ
+lastname: นามสกุล
+email: อีเมล
+```
+
 ```ts
 {
   studentID: string,
