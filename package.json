@@ -1,6 +1,6 @@
 {
 	"name": "tucmc-auth",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"module": "dist/index.es.js",
 	"types": "dist/index.d.ts",
 	"files": [ "dist" ],
@@ -8,9 +8,9 @@
 	"scripts": {
 		"build": "rollup -c"
 	},
-	"keywords": [],
+	"keywords": ["tucmc", "tucmc-auth", "triamudom"],
 	"homepage": "https://github.com/triamudomcmc/tucmc-auth",
-	"author": "Peter Phongpak <peterphongpak@gmail.com>",
+	"author": "Triam Udom Clubs Management Committee <clubs@triamudom.ac.th>",
 	"repository": "triamudomcmc/tucmc-auth",
 	"license": "MIT",
 	"dependencies": {

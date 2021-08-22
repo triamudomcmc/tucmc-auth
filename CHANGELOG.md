@@ -72,3 +72,25 @@ All notable changes to this package will be documented in this file.
 ## Fixed
 
 - Reimplemented client token validating system.
+
+## [0.2.0] - 2020-08-22
+
+## Added
+
+- MIT License
+- prettier
+- Added logIn function to context
+
+## Modified
+
+- Changed from signin to login
+- Changed button style
+  - no dynamic padding
+  - fixed width/height
+- Changed from using ids to classes
+  - basically making buttons reusable
+- Moved log in button outside of the context (make it reusable)
+- Changed from inline styles to css modules
+- Renamed component to TUCMCLogin
+- Decorated readme with flashy buttons
+- General refactoring
