@@ -39,7 +39,7 @@ function useProvideAuth(token) {
   const SignInWithTUCMC = () => {
     return (
       <button
-        onClick={signin}
+        onClick={signIn}
         style={{
           backgroundImage:
             "linear-gradient(to right, #a78bfa, #ec4899, #ef4444)",
@@ -127,7 +127,7 @@ function useProvideAuth(token) {
     return token.length === 44
   }
 
-  const signin = () => {
+  const signIn = () => {
     if (loading) return
     if (prevPop) {
       prevPop.close()
@@ -162,6 +162,7 @@ function useProvideAuth(token) {
   return {
     SignInWithTUCMC,
     signOut,
+    signIn,
     reFetch,
     userData,
   }
