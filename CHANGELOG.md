@@ -72,3 +72,10 @@ All notable changes to this package will be documented in this file.
 ## Fixed
 
 - Reimplemented client token validating system.
+
+## [1.0.0] - 2022-05-20
+
+## Added
+
+- exported signIn to useAuth
+- added prettier

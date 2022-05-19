@@ -1,8 +1,9 @@
-import {UserData} from "./UserData";
+import { UserData } from "./UserData"
 
 export interface IAuthContext {
-  SignInWithTUCMC: () => JSX.Element,
-  signOut: () => void,
-  reFetch: () => void,
+  SignInWithTUCMC: () => JSX.Element
+  signIn: () => void
+  signOut: () => void
+  reFetch: () => void
   userData: UserData | null
 }
