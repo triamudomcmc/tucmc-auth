@@ -1,7 +1,9 @@
 export interface UserData {
-  studentID: string,
-  title: string,
-  firstname: string,
-  lastname: string,
-  email: string
+  sessionId: string;
+  uuid: string;
+  studentID?: string;
+  title?: string;
+  firstname?: string;
+  lastname?: string;
+  email?: string;
 }
