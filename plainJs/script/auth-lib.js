@@ -159,7 +159,15 @@ class TUCMCAuth {
 
       if (jsonResult.status) {
         window.sessionStorage.setItem("authToken", "");
-        window.localStorage.setItem("data", JSON.stringify(jsonResult.data.data));
+        const sesionData = jsonResult.data.data;
+        const formatted = {};
+        formatted["user"] = sesionData.data;
+  
+        delete sesionData["data"];
+  
+        formatted["meta"] = sesionData;
+  
+        window.localStorage.setItem("data", JSON.stringify(formatted));
         window.location.reload();
       }
       resetLoading();

@@ -20,7 +20,7 @@ declare module "tucmc-auth" {
 
   interface LoggedUser {
     meta: SessionMeta;
-    data: UserData;
+    user: UserData;
   }
 
   interface IAuthContext {

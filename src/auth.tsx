@@ -18,7 +18,7 @@ export const AuthProvider = ({ children, TOKEN }): JSX.Element => {
 
 function useProvideAuth(token) {
   const [prevPop, setPrevPop] = useState(null);
-  const [userData, setUserData] = useState(null);
+  const [loggedUser, setLoggedUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const user = () => {
@@ -33,7 +33,7 @@ function useProvideAuth(token) {
   };
 
   const reFetch = () => {
-    setUserData(user());
+    setLoggedUser(user());
   };
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function useProvideAuth(token) {
       window.sessionStorage.setItem("authToken", "");
       const sesionData = jsonResult.data.data;
       const formatted = {};
-      formatted["data"] = sesionData.data;
+      formatted["user"] = sesionData.data;
 
       delete sesionData["data"];
 
@@ -144,7 +144,7 @@ function useProvideAuth(token) {
     signIn,
     signOut,
     reFetch,
-    userData,
+    loggedUser,
     loading,
   };
 }

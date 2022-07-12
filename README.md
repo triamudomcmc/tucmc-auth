@@ -33,7 +33,7 @@ number: เลขที่
     domain: string,
     applicationId: string,
   },
-  data: {
+  user: {
     sessionId: string,
     uuid: string,
     studentID?: string,
@@ -79,11 +79,11 @@ Then, use the `useAuth` hook to access all the user data from anywhere.
 import { useAuth, TUCMCLogin } from "tucmc-auth";
 
 const Index = () => {
-  const { userData, logOut, logIn } = useAuth();
+  const { loggedUser, logOut, logIn } = useAuth();
 
   return (
     <div>
-      {userData && <h1>Hi, {userData.firstname}</h1>}
+      {loggedUser && <h1>Hi, {loggedUser.user.firstname}</h1>}
       <TUCMCLogin />
       <button onClick={() => logIn()}>Login</button>
       <button onClick={() => logOut()}>Logout</button>
@@ -134,7 +134,7 @@ https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
 
     // If session is valid, update an element with userdata.
     if (sessionData) {
-      document.getElementById("email").innerText = `Logged in as: {sessionData.email}`;
+      document.getElementById("email").innerText = `Logged in as: {sessionData.user.email}`;
     } else {
       document.getElementById("email").innerText = "";
     }
