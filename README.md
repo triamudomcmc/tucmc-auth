@@ -1,16 +1,51 @@
-# TUCMC Auth API
+<h1 align="center">
+  TUCMC Authentication Service
+</h1>
 
-Easily secure your website with authentication system.
+<p align="center">
+Easily implement authentication in your website with TUCMC's authentication system.
+</p>
 
-## API Setup Guide using npm
+<p align="center">
+  <a href="https://www.npmjs.com/package/tucmc-auth"><img src="https://img.shields.io/npm/v/tucmc-auth?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/tucmc-auth"><img src="https://img.shields.io/npm/dm/tucmc-auth?style=flat-square"></a>
+</p>
 
-#### _app.js or _app.tsx
+## User Data
 
-```javascript
-import {AuthProvider} from "tucmc-auth"
+Below is the data you'll get from a logged in user.
 
-function MyApp({Component, pageProps}) {
+```
+studentID: รหัสนักเรียน
+title: คำนำหน้า
+firstname: ชื่อ
+lastname: นามสกุล
+email: อีเมล
+```
 
+```ts
+{
+  studentID: string,
+  title: string,
+  firstname: string,
+  lastname: string,
+  email: string
+}
+```
+
+## Implementation
+
+### React / Next.js
+
+User data can be accessed with our [React Context](https://reactjs.org/docs/context.html) by wrapping the app with it.
+
+#### `_app.js` or `_app.tsx`
+
+
+```jsx
+import { AuthProvider } from "tucmc-auth"
+
+const MyApp = ({ Component, pageProps }) => {
   return (
     <div>
       <AuthProvider TOKEN="-----TOKEN-----">
@@ -24,19 +59,22 @@ function MyApp({Component, pageProps}) {
 export default MyApp
 ```
 
-#### pages/index.js or pages/index.tsx
+Then, use the `useAuth` hook to access all the user data from anywhere.
 
-```javascript
-import {useAuth} from 'tucmc-auth'
+#### `pages/index.js` or `pages/index.tsx`
 
-function Index() {
+```jsx
+import { useAuth, TUCMCLogin } from 'tucmc-auth'
 
-  const {userData, SignInWithTUCMC, signOut} = useAuth()
+const Index = () => {
+  const { userData, logOut, logIn } = useAuth()
 
   return (
     <div>
-      {userData && <h1>Hi, {userData.firstname}</h1>}
-      <SigninWithTUCMC/>
+      { userData && <h1>Hi, {userData.firstname}</h1> }
+      <TUCMCLogin/>
+      <button onClick={() => logIn()}>Login</button>
+      <button onClick={() => logOut()}>Logout</button>
     </div>
   )
 }
@@ -44,14 +82,23 @@ function Index() {
 export default Index
 ```
 
-## Setup Guide using javascript CDN
-### Library Resources CDN
+### Pure Javascript / CDN
+
+For non-react projects.
+
+#### Links to the CDN files
+
+CSS
 ```
-CSS: https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css
-Script: https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
+https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css
 ```
 
-### 1. Include all required libraries
+JS
+```
+https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
+```
+
+#### 1. Include all required libraries
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css"/>
@@ -59,35 +106,40 @@ Script: https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.
 <script async src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js" onload="init()"></script>
 ```
 
-### 2. Setup a script
+#### 2. Setup a script
 
 ```html
 <script>
-    const auth = new TUCMCAuth("-----TOKEN-----")
+  const auth = new TUCMCAuth("-----TOKEN-----");
 
-    window.onload = function () {
-        const sessionData = auth.user()
-        
-        // If session is valid, update an element with userdata.
-        if (sessionData) {
-            document.getElementById("email").innerText = sessionData.email
-        }
+  window.onload = function () {
+    const sessionData = auth.user();
+
+    // If session is valid, update an element with userdata.
+    if (sessionData) {
+      document.getElementById("email").innerText = `Logged in as: {sessionData.email}`;
+    } else {
+      document.getElementById("email").innerText = "";
     }
+  }
 </script>
 ```
 
-### 3. Add sign-in button
+#### 3. Add the buttons
 ```html
-<!---Button id must be `login_with_TUCMC`--->
-<button id="login_with_TUCMC" class="login_with_TUCMC">
-    Login with TUCMC
-</button>
-
-<!---Logout button--->
-<button onclick="auth.signout()">logout</button>
-
-<!---Display data here--->
+<!-- Display data here -->
 <p id="email"></p>
+
+<!-- Login button - must have the class "tucmc-login" -->
+<button class="tucmc-login">Login with TUCMC</button>
+
+<!-- Custom Login Button-->
+<button onclick="auth.login()">Login</button>
+
+<!-- Logout button -->
+<button onclick="auth.logout()">logout</button>
 ```
 
+<p align="center">
 made with ♥ by Triam Udom Clubs Management Committee
+</p>
