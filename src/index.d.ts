@@ -33,4 +33,5 @@ declare module "tucmc-auth" {
 
   export function AuthProvider({ children, TOKEN: string }): JSX.Element;
   export function useAuth(): IAuthContext;
+  export function TUCMCLogin(): JSX.Element;
 }

@@ -109,3 +109,9 @@ All notable changes to this package will be documented in this file.
   - LoggedUser includes session meta & returned userdata
 - Permission value are required for each registered application
   - User credential options are now limited depends on registered permission value
+
+## [0.3.1] - 2022-07-12
+
+## Fixed
+
+- Button type missing
