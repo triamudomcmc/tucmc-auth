@@ -94,3 +94,18 @@ All notable changes to this package will be documented in this file.
 - Renamed component to TUCMCLogin
 - Decorated readme with flashy buttons
 - General refactoring
+
+## [0.3.0] - 2022-07-12
+
+## Added
+
+- uuid & sessionId for every users
+  - Registered applications are able to identify user by their uuid instead of their credentials
+
+## Modified
+
+- User's room and number are now included in data structure
+- Changed from UserData to LoggedUser
+  - LoggedUser includes session meta & returned userdata
+- Permission value are required for each registered application
+  - User credential options are now limited depends on registered permission value
