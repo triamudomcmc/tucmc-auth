@@ -1,10 +1,26 @@
 declare module "tucmc-auth" {
+  interface SessionMeta {
+    fp: string;
+    created: number;
+    domain: string;
+    applicationId: string;
+  }
+
   interface UserData {
-    studentID: string;
-    title: string;
-    firstname: string;
-    lastname: string;
-    email: string;
+    sessionId: string;
+    uuid: string;
+    studentID?: string;
+    title?: string;
+    firstname?: string;
+    lastname?: string;
+    email?: string;
+    room?: string;
+    number?: string;
+  }
+
+  interface LoggedUser {
+    meta: SessionMeta;
+    data: UserData;
   }
 
   interface IAuthContext {
@@ -12,7 +28,7 @@ declare module "tucmc-auth" {
     signIn: () => void;
     signOut: () => void;
     reFetch: () => void;
-    userData: UserData | null;
+    loggedUser: LoggedUser;
   }
 
   export function AuthProvider({ children, TOKEN: string }): JSX.Element;

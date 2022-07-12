@@ -13,7 +13,7 @@ Easily implement authentication in your website with TUCMC's authentication syst
 
 ## User Data
 
-Below is the data you'll get from a logged in user.
+Below is the data you might get from a logged in user.
 
 ```
 studentID: รหัสนักเรียน
@@ -21,15 +21,29 @@ title: คำนำหน้า
 firstname: ชื่อ
 lastname: นามสกุล
 email: อีเมล
+room: เลขห้องเรียน
+number: เลขที่
 ```
 
 ```ts
 {
-  studentID: string,
-  title: string,
-  firstname: string,
-  lastname: string,
-  email: string
+  meta: {
+    fp: string,
+    created: number,
+    domain: string,
+    applicationId: string,
+  },
+  data: {
+    sessionId: string,
+    uuid: string,
+    studentID?: string,
+    title?: string,
+    firstname?: string,
+    lastname?: string,
+    email?: string
+    room?: string,
+    number?: string
+  }
 }
 ```
 
@@ -41,9 +55,8 @@ User data can be accessed with our [React Context](https://reactjs.org/docs/cont
 
 #### `_app.js` or `_app.tsx`
 
-
 ```jsx
-import { AuthProvider } from "tucmc-auth"
+import { AuthProvider } from "tucmc-auth";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -52,11 +65,10 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </AuthProvider>
     </div>
-  )
+  );
+};
 
-}
-
-export default MyApp
+export default MyApp;
 ```
 
 Then, use the `useAuth` hook to access all the user data from anywhere.
@@ -64,22 +76,22 @@ Then, use the `useAuth` hook to access all the user data from anywhere.
 #### `pages/index.js` or `pages/index.tsx`
 
 ```jsx
-import { useAuth, TUCMCLogin } from 'tucmc-auth'
+import { useAuth, TUCMCLogin } from "tucmc-auth";
 
 const Index = () => {
-  const { userData, logOut, logIn } = useAuth()
+  const { userData, logOut, logIn } = useAuth();
 
   return (
     <div>
-      { userData && <h1>Hi, {userData.firstname}</h1> }
-      <TUCMCLogin/>
+      {userData && <h1>Hi, {userData.firstname}</h1>}
+      <TUCMCLogin />
       <button onClick={() => logIn()}>Login</button>
       <button onClick={() => logOut()}>Logout</button>
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 ```
 
 ### Pure Javascript / CDN
@@ -89,11 +101,13 @@ For non-react projects.
 #### Links to the CDN files
 
 CSS
+
 ```
 https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css
 ```
 
 JS
+
 ```
 https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
 ```
@@ -101,8 +115,11 @@ https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
 #### 1. Include all required libraries
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-style.min.css" />
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js"
+></script>
 <script async src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js" onload="init()"></script>
 ```
 
@@ -121,11 +138,12 @@ https://cdn.jsdelivr.net/npm/tucmc-auth@latest/dist/script/auth-lib.min.js
     } else {
       document.getElementById("email").innerText = "";
     }
-  }
+  };
 </script>
 ```
 
 #### 3. Add the buttons
+
 ```html
 <!-- Display data here -->
 <p id="email"></p>
