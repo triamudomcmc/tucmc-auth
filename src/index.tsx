@@ -1,3 +1,3 @@
-export { useAuth, AuthProvider } from "./auth";
+export { useAuth, AuthProvider } from "./auth"
 
-export { TUCMCLogin } from "./components";
+export { TUCMCLogin } from "./components"

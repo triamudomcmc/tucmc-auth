@@ -209,7 +209,7 @@ class TUCMCAuth {
 
     if (data) {
       const parsed = JSON.parse(data);
-      return parsed.data;
+      return parsed;
     } else {
       return null;
     }

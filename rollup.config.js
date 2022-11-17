@@ -13,7 +13,7 @@ export default [
     },
     plugins: [
       typescript(),
-      babel({ extensions: [".tsx"], presets: ["@babel/preset-react"] }),
+      babel({ extensions: [".tsx"], presets: ["@babel/preset-react"]}),
       copy({
         targets: [{ src: "plainJs/script", dest: "dist/" }],
       }),

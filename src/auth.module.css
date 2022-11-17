@@ -1,21 +1,21 @@
 .tucmc-login {
-  background-image: linear-gradient(to right, #a78bfa, #ec4899, #ef4444);
-  color: rgba(255, 255, 255, 1);
-  padding: 0.5rem 2rem;
-  font-weight: 600;
-  border-radius: 0.375rem;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.25rem;
-  border: none;
-  cursor: pointer;
-  transition: filter 300ms ease;
-  width: 200px;
-  height: 50px;
+    background-image: linear-gradient(to right, #a78bfa, #ec4899, #ef4444);
+    color: rgba(255, 255, 255, 1);
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: filter 300ms ease;
+    width: 200px;
+    height: 50px;
 }
 
 .tucmc-login:hover,
 .tucmc-login:active {
-  filter: brightness(0.8);
+    filter: brightness(0.8);
 }

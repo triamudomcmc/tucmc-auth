@@ -9,7 +9,7 @@ export const Loader = () => {
         margin: "auto",
         shapeRendering: "auto",
         width: "40px",
-        height: "32px",
+        height: "32px"
       }}
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
