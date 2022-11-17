@@ -9,7 +9,6 @@ export const TUCMCLogin = () => {
   const styles = {
     backgroundImage: "linear-gradient(to right, #a78bfa, #ec4899, #ef4444)",
     color: "rgba(255, 255, 255, 1)",
-    padding: "0.6rem 2rem",
     fontWeight: 600,
     borderRadius: "0.375rem",
     fontSize: "15.4px",
@@ -32,7 +31,8 @@ export const TUCMCLogin = () => {
       onClick={signIn}
       style={{
         ...styles,
-        ...(hover && hoverStyle)
+        ...(hover && hoverStyle),
+        ...loading ? {padding: "0.20rem 2rem"} : {padding: "0.6rem 2rem" }
       }}
     >
       {loading ? <Loader /> : "Login with TUCMC"}
