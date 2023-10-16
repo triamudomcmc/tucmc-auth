@@ -79,14 +79,14 @@ Then, use the `useAuth` hook to access all the user data from anywhere.
 import { useAuth, TUCMCLogin } from "tucmc-auth";
 
 const Index = () => {
-  const { loggedUser, logOut, logIn } = useAuth();
+  const { loggedUser, signOut, signIn } = useAuth();
 
   return (
     <div>
       {loggedUser && <h1>Hi, {loggedUser.user.firstname}</h1>}
       <TUCMCLogin />
-      <button onClick={() => logIn()}>Login</button>
-      <button onClick={() => logOut()}>Logout</button>
+      <button onClick={() => signIn()}>Login</button>
+      <button onClick={() => signOut()}>Logout</button>
     </div>
   );
 };
